@@ -148,8 +148,8 @@ export default function CourseDetailsPage() {
 
                   <div>
                     <h3 className="text-2xl font-bold text-[#003D33] mb-6">Course Content</h3>
-                    <Accordion type="multiple" defaultValue={course.modules?.map(m => m.id)} className="space-y-4">
-                      {course.modules?.map((module, idx) => (
+                    <Accordion multiple defaultValue={course.modules?.map((m:any) => m.id)} className="space-y-4">
+                      {course.modules?.map((module:any, idx:any) => (
                         <AccordionItem key={module.id} value={module.id} className="border border-slate-100 rounded-2xl px-6 bg-[#F1F8F6]/50">
                           <AccordionTrigger className="font-bold text-[#003D33] hover:no-underline py-6">
                             <div className="flex items-center gap-4">
@@ -158,7 +158,7 @@ export default function CourseDetailsPage() {
                             </div>
                           </AccordionTrigger>
                           <AccordionContent className="space-y-4 pb-6">
-                            {module.lessons.map((lesson) => (
+                            {module.lessons.map((lesson:any) => (
                               <div key={lesson.id} className="flex items-center justify-between p-4 bg-white rounded-xl shadow-sm group hover:bg-slate-50 transition-colors">
                                 <div className="flex items-center gap-3">
                                   <Video className="w-5 h-5 text-[#003D33]" />
@@ -206,7 +206,7 @@ export default function CourseDetailsPage() {
                   <div>
                     <h4 className="font-bold text-[#003D33] mb-4">What You&apos;ll Learn</h4>
                     <ul className="space-y-3">
-                      {course.learningObjectives?.map((obj, i) => (
+                      {course.learningObjectives?.map((obj:any, i:any) => (
                         <li key={i} className="flex gap-3 text-slate-600 text-sm leading-relaxed">
                           <Check className="w-5 h-5 text-[#003D33] shrink-0" />
                           <span>{obj}</span>
@@ -240,7 +240,7 @@ export default function CourseDetailsPage() {
                   <div>
                     <h4 className="font-bold text-[#003D33] mb-4">Requirements</h4>
                     <ul className="space-y-3">
-                      {course.requirements?.map((req, i) => (
+                      {course.requirements?.map((req:any, i:any) => (
                         <li key={i} className="flex gap-3 text-slate-600 text-sm leading-relaxed">
                           <Check className="w-5 h-5 text-[#003D33] shrink-0" />
                           <span>{req}</span>

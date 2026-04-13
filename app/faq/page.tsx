@@ -54,7 +54,7 @@ export default function FAQPage() {
             </h2>
           </div>
 
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion  className="space-y-4">
             {FAQS.map((faq, index) => (
               <AccordionItem 
                 key={index} 

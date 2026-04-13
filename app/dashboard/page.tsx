@@ -9,6 +9,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 import { MOCK_COURSES } from '@/lib/mock-data'
+import React from 'react'
 
 export default function DashboardPage() {
   const myLearningCourses = React.useMemo(() => MOCK_COURSES.map((course, idx) => ({

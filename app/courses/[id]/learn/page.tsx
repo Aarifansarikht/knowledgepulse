@@ -57,7 +57,7 @@ export default function CourseLearnPage() {
     )
   }
 
-  const totalLessons = course.modules?.reduce((acc, m) => acc + m.lessons.length, 0) || 0
+  const totalLessons = course.modules?.reduce((acc:any, m:any) => acc + m.lessons.length, 0) || 0
   const progress = (completedLessons.length / totalLessons) * 100
 
   const handleLessonSelect = (lesson: Lesson) => {
@@ -76,12 +76,12 @@ export default function CourseLearnPage() {
 
   const getAllLessons = () => {
     if (!course.modules) return []
-    return course.modules.flatMap(m => m.lessons)
+    return course.modules.flatMap((m:any) => m.lessons)
   }
 
   const getNextLesson = () => {
     const allLessons = getAllLessons()
-    const currentIndex = allLessons.findIndex(l => l.id === currentLesson.id)
+    const currentIndex = allLessons.findIndex((l:any) => l.id === currentLesson.id)
     if (currentIndex < allLessons.length - 1) {
       return allLessons[currentIndex + 1]
     }
@@ -90,7 +90,7 @@ export default function CourseLearnPage() {
 
   const getPreviousLesson = () => {
     const allLessons = getAllLessons()
-    const currentIndex = allLessons.findIndex(l => l.id === currentLesson.id)
+    const currentIndex = allLessons.findIndex((l:any) => l.id === currentLesson.id)
     if (currentIndex > 0) {
       return allLessons[currentIndex - 1]
     }
@@ -224,8 +224,8 @@ export default function CourseLearnPage() {
             </div>
             
             <div className="flex-1 overflow-y-auto">
-              <Accordion type="multiple" defaultValue={course.modules?.map(m => m.id)} className="w-full">
-                {course.modules?.map((module, mIdx) => (
+              <Accordion multiple defaultValue={course.modules?.map((m:any) => m.id)} className="w-full">
+                {course.modules?.map((module:any, mIdx:any) => (
                   <AccordionItem key={module.id} value={module.id} className="border-b border-slate-50">
                     <AccordionTrigger className="px-6 py-4 hover:bg-slate-50 transition-all hover:no-underline group">
                       <div className="flex flex-col items-start text-left">
@@ -239,7 +239,7 @@ export default function CourseLearnPage() {
                     </AccordionTrigger>
                     <AccordionContent className="p-0">
                       <div className="flex flex-col">
-                        {module.lessons.map((lesson) => (
+                        {module.lessons.map((lesson: Lesson) => (
                           <button
                             key={lesson.id}
                             onClick={() => handleLessonSelect(lesson)}
